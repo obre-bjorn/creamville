@@ -1,17 +1,20 @@
 from django.db import models
 
-# Create your models here.
+
+# Product choices.
 
 CATEGORY_CHOICE = (
-    ('CA','Cakes'),
-    ('CO','Cookies'),
-    ('PA','Pastries')
+    ('Cakes','Cakes'),
+    ('Snacks','Snacks'),
+    ('Pastries','Pastries')
 )
 
 
-class Product(models.Model):
+# Create your models here.
 
-  
+
+class Product(models.Model):
+ 
 
     """ Product to be sold """
     
@@ -28,6 +31,10 @@ class Product(models.Model):
 
     """ Return a string representation of the model """
     
+    
+    class Meta:
+         verbose_name_plural = 'Products'
+        
     def __str__(self):
         return self.name
     
