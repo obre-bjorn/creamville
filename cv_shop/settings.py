@@ -57,7 +57,9 @@ ROOT_URLCONF = 'cv_shop.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            os.path.join(BASE_DIR, 'creamville_frontend/build')
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -122,6 +124,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATICFILES_DIRS = [
+            os.path.join(BASE_DIR, 'creamville_frontend/build/static')
+        ]
+
 MEDIA_URL  = '/media/'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'creamville_frontend/static/media')
