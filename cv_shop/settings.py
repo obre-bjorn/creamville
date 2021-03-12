@@ -38,11 +38,16 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    # External Django Apps
+    'rest_framework',
+    'corsheaders',
+
     # My Apps
     'product',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -58,7 +63,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            os.path.join(BASE_DIR, 'creamville_frontend/build')
+            os.path.join(BASE_DIR, 'cv_frontend/build')
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -125,9 +130,16 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-            os.path.join(BASE_DIR, 'creamville_frontend/build/static')
+            os.path.join(BASE_DIR, 'cv_frontend/build/static')
         ]
 
 MEDIA_URL  = '/media/'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'creamville_frontend/static/media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'cv_frontend/static/media')
+
+
+CORS_ORIGIN_ALLOW_ALL = False
+
+CORS_ORIGIN_WHITELIST = [
+    'https://localhost:3000',
+]
